@@ -17,8 +17,8 @@
   </tbody>
 </table>
 
-<div>
-  <button type="button" (click)="previousPage()">Atras</button>
+<div class="pagination">
+  <button type="button" (click)="previousPage()" [disabled]="currentPage === 1">Atras</button>
   <span>{{ currentPage }}</span>
   <button type="button" (click)="nextPage()">Siguiente</button>
 </div>
