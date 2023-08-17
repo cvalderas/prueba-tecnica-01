@@ -1,0 +1,24 @@
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Email</th>
+      <th>Teléfono</th>
+      <th>País</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let client of clients">
+      <td>{{client.nombre}}</td>
+      <td>{{client.email}}</td>
+      <td>{{client.telefono | phoneFormat}}</td>
+      <td>{{client.nombrePais}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div>
+  <button type="button" (click)="previousPage()">Atras</button>
+  <span>{{ currentPage }}</span>
+  <button type="button" (click)="nextPage()">Siguiente</button>
+</div>
