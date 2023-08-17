@@ -5,7 +5,12 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class PhoneFormatPipe implements PipeTransform {
   transform(value: string): string {
-    return value.replace(/(\d{3})(\d{4})(\d{4})/, '$1 $2 $3');
-
+    if (value) {
+      const countryCode = value.slice(0, 4);
+      const firstPart = value.slice(4, 8);
+      const secondPart = value.slice(8, 11);
+      return countryCode + ' ' + firstPart + ' ' + secondPart;
+    }
+    return value;
   }
 }

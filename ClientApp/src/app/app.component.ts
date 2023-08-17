@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from './app.service';
 import { Subject, takeUntil } from 'rxjs';
+import { Client } from './interface/clients';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ import { Subject, takeUntil } from 'rxjs';
 export class AppComponent implements OnInit {
   title = 'ClientApp';
 
-  clients: any[] = [];
+  clients: Client[] = [];
 
   currentPage = 1;
 
@@ -26,7 +27,7 @@ export class AppComponent implements OnInit {
   getClients(page: number = 1) {
     this.appService.getClientsEF(page)
       .pipe(takeUntil(this.unsubstribe$))
-      .subscribe((clients: any) => {
+      .subscribe((clients: Client[]) => {
         this.clients = clients;
       }
       );
